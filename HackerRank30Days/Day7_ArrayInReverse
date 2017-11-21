@@ -1,0 +1,61 @@
+so when you fill an array in reverse it's quite easy, you fill it from the back
+--------------------- Example -------------------------
+arr = [1, 2, ,] // because the last 2 haven't been done yet
+stringarray = [ , , 2, 1] // Because only the last 2 have been done
+
+so when you say output
+arr[1] = 2
+stringarray[1] = unknown because not set yet
+
+------------------------ Solution ----------------------
+make a second loop just to output the reverse array
+
+
+
+import java.io.*;
+import java.util.*;
+
+
+public class Solution {
+
+    public static void main(String[] args) {
+        // Define Variables
+        Scanner in        = new Scanner(System.in);
+        int n             = in.nextInt();
+        int[] arr         = new int[n];
+        int[] stringarray = new int[n];
+
+        // For loop
+        for(int i=0; i < n; i++){
+            // Original Array
+            arr[i]  = in.nextInt();
+
+
+            /*
+             * Logic Example:
+             *  n = 4, i = 0, 1, 2, 3, arr = [1 4 3 2]
+             *
+             *  arr[0] = 1
+             *  stringarray[3] = 2
+             *  3 = 5-(0+1) = n - (i+1)
+             */
+            int a   = n-(i+1);
+            stringarray[a] = arr[i];
+
+            //DEBUG: System.out.println("[Debug] i:" +i+ " n:" +n+ " arr[i]:" +arr[i]+ " a:"+a);
+
+            // Cant do this because i =/= a
+            //System.out.print(stringarray[i]);
+            //System.out.print(" ");
+
+        }
+        // Solution is to run it out of loop
+        for(int i=0; i<n; i++){
+            System.out.print(stringarray[i]);
+            System.out.print(" ");
+        }
+        //DEBUG: System.out.println(Arrays.toString(stringarray));
+        //DEBUG: System.out.println(Arrays.toString(arr));
+        in.close();
+    }
+}
