@@ -21,7 +21,7 @@ public class Main {
             if (newCharArray[a] == '0') {
                 cnt = 0;
             }
-
+// remember that if it doesn't go through the second if, it is going to keep proceed to the last if.
             if (maxNum < cnt) {
                 maxNum = cnt;
             }
