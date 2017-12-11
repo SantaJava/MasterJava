@@ -17,6 +17,6 @@ public class Assignment_3_stack {
     }
 
     public static void main(String[] args) {
-        solution("abcde");
+        solution("MELISSA GU");
     }
 }
