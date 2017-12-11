@@ -10,6 +10,7 @@ public class Assignment_1 {
 
                 if (i % j == 0 && i != 2) {
                     right = 0;
+                    break; //add break(fix)
                 }
             }
             if (right == 1) {
