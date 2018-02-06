@@ -8,6 +8,8 @@ public class ContactBookTest {
 		testCreateContactBook();
 		testFindEmptyIndex();
 		testAddContact();
+		testPrintList();
+		testUpdateContact();
 	}
 
 	public static void testCreateContactBook() {
@@ -42,6 +44,14 @@ public class ContactBookTest {
 		System.out.println("findEmptyIndex 테스트 완료");
 	}
 	
+	public static void testUpdateContact() {
+		ContactBook contactBook = new ContactBook();
+		contactBook.printList();
+		contactBook.updateContact();
+		contactBook.printList();
+		contactBook.printContact();
+	}
+	
 	public static void testAddContact() {
 		ContactBook contactBook = new ContactBook();
 		contactBook.addContact();
@@ -52,5 +62,12 @@ public class ContactBookTest {
 			return;
 		}
 		System.out.println(contacts[30]);
+	}
+
+
+	public static void testPrintList() {
+		ContactBook contactBook = new ContactBook();	
+		Contact[] contacts = contactBook.getContactBook();
+			contactBook.printList();
 	}
 }

@@ -1,10 +1,12 @@
 package edu.iot.contact.model;
 
-public class Contact {
+public class Contact implements Comparable<Contact>{
 	private String name;		//이름
 	private String address;		//주소
 	private String cellPhone;	//핸드폰 번호
 	private String email;		//이메일 주소
+	
+	
 	
 	public Contact(){} //생성자1
 	//생성자2
@@ -44,6 +46,12 @@ public class Contact {
 	@Override
 	public String toString() {
 		return "Contact [name=" + name + ", address=" + address + ", cellPhone=" + cellPhone + ", email=" + email + "]";
+	}
+	@Override
+	public int compareTo(Contact contact) {
+		// TODO Auto-generated method stub
+		
+		return name.compareTo(contact.name);//이름가지고 정렬을 하겠다는 뜻. 
 	}
 	
 }
