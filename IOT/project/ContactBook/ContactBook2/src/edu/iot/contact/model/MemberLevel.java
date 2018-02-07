@@ -2,6 +2,6 @@ package edu.iot.contact.model;
 
 public enum MemberLevel { //AdmineLevelSelect
 	ADMIN,
-	NORMAL,
-	GOLD
+	GOLD,
+	NORMAL
 }
