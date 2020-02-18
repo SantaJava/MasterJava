@@ -1,5 +1,5 @@
 
-public class Assignment_1 {
+class Assignment_1 {
     public static void primenumber(int input) {
         boolean decider;
         StringBuffer sb = new StringBuffer();

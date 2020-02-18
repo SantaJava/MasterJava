@@ -1,3 +1,5 @@
+package Assignment;
+
 //에라토스테네스의 체(소수 구하기)
 class Solution {
     public static void main(String[] args) {

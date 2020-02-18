@@ -1,3 +1,5 @@
+package HackerRank30Days;
+
 mport java.io.*;
 import java.util.*;
 
