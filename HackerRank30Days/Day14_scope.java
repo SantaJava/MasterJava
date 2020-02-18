@@ -1,3 +1,5 @@
+package HackerRank30Days;
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
@@ -31,7 +33,7 @@ class Difference {
 
 } // End of Difference class
 
-public class Solution {
+class Solution {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

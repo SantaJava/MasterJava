@@ -1,7 +1,9 @@
+package Assignment;
+
 public class PreTest {
 
-    public static void main(String[] args) {
-        String[] number = {"일", "이", "삼", "사", "오", "육", "칠", "팔", "구"};
+public static void main(String[] args) {
+String[] number = {"일", "이", "삼", "사", "오", "육", "칠", "팔", "구"};
         String[] unit = {"", "십", "백", "천", "만"};
 
         String input = args[0];
