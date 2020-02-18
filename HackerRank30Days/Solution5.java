@@ -1,7 +1,9 @@
+package HackerRank30Days;
+
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Solution5 {
     // Write your code here. 
     Stack a = new Stack<Character>();
     Queue<Character> qe=new LinkedList<Character>();
@@ -32,8 +34,8 @@ public class Solution {
         // Convert input String to an array of characters:
         char[] s = input.toCharArray();
 
-        // Create a Solution object:
-        Solution p = new Solution();
+        // Create a Solution5 object:
+        Solution5 p = new Solution5();
 
         // Enqueue/Push all chars to their respective data structures:
         for (char c : s) {

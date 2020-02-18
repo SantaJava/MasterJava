@@ -1,7 +1,9 @@
+package NTS;
+
 /**
  * Created by Melissa on 12/9/17.
  */
-    public class tryThree {
+class tryThree {
         public static void findCapital(String input){
             StringBuffer sb = new StringBuffer(input);
             int i = 0;

@@ -1,6 +1,6 @@
 package HackerRank30Days;
 
-mport java.io.*;
+import java.io.*;
 import java.util.*;
 
 interface AdvancedArithmetic{
@@ -21,7 +21,7 @@ class Calculator implements AdvancedArithmetic {
 	};
 }
 
-class Solution {
+class Solution1 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

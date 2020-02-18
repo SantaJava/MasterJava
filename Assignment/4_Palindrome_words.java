@@ -1,9 +1,11 @@
+package Assignment;
+
 import java.util.Stack;
 
 /**
  * Created by Melissa on 12/11/17.
  */
-public class Palindrome {
+class Palindrome {
 
     public static boolean solution(String input) {
         Boolean isP = true;

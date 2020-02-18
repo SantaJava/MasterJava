@@ -1,4 +1,4 @@
-public class Assignment_2 {
+class Assignment_2 {
     public static void caesarCipher(String input, int num){
         StringBuffer sb = new StringBuffer();
         for(int i = 0; i < input.length() ; i++){

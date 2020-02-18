@@ -1,4 +1,4 @@
-
+package SampleProject;
 
 public class WordCountTest {
 	
