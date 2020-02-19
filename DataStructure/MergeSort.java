@@ -105,7 +105,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 6, 3, 6, 3, 8, 3, 10, 26};
+        int[] a = {1, 2, 3,4};
         printArray(a);
         a = mergeSort(a);
         printArray(a);
