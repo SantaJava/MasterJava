@@ -9,22 +9,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 
-class Node implements Comparable<Node> {
-    int elevator;
-    int dist;
-
-    Node(int elevator, int dist) {
-        this.elevator = elevator;
-        this.dist = dist;
-    }
-
-    @Override
-    public int compareTo(Node o) {
-        return this.dist < o.dist ? -1 : 1;
-    }
-}
-
-public class Elevator {
+public class Elevator1 {
     static final int MAX_VALUE = 1000000000;
     static int min = MAX_VALUE;
 
@@ -117,4 +102,23 @@ public class Elevator {
         System.out.println(elevator);
     }
 }
+
+class Node implements Comparable<Node> {
+    int elevator;
+    int dist;
+
+    Node(int elevator, int dist) {
+        this.elevator = elevator;
+        this.dist = dist;
+    }
+
+    @Override
+    public int compareTo(Node o) {
+        return this.dist < o.dist ? -1 : 1;
+    }
+}
+
+
+
+
 
