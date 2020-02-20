@@ -18,24 +18,21 @@ public class DFS {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             String[] temp = br.readLine().trim().split(" ");
-            n = Integer.parseInt(temp[0]); //Number of Nodes
-            m = Integer.parseInt(temp[1]); //Number of Lines
-            v = Integer.parseInt(temp[2]); //Start number
-            map = new int[n + 1][n + 1];
+            int n = Integer.parseInt(temp[0]);  //number of nodes
+            int m = Integer.parseInt(temp[1]);  //number of lines
+            int v = Integer.parseInt(temp[2]);  //start node
+            map = new int[n + 1][n + 1]; //create
             visit = new boolean[n + 1];
             while (m-- > 0) {
-                temp = br.readLine().trim().split(" "); //get linked Nodes
+                temp = br.readLine().trim().split(" ");
                 int x = Integer.parseInt(temp[0]);
                 int y = Integer.parseInt(temp[1]);
-                map[x][y] = map[y][x] = 1; //check the one those are linked
+                map[x][y] = map[y][x] = 1;
             }
-
-            //after every linked are marked start dfs
             dfs(v, n);
             visit = new boolean[n + 1];
             System.out.println();
             bfs(v, n);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,12 +43,10 @@ public class DFS {
         if (visit[k]) {
             return;
         }
-
         visit[k] = true;
         System.out.print(k + " ");
-
-        //visit
-        for (int i = 1; i <= n; i++) {
+        //if not, add to seen
+        for (int i = 0; i < n; i++) {
             if (map[k][i] == 1) {
                 dfs(i, n);
             }
@@ -59,16 +54,15 @@ public class DFS {
     }
 
     public static void bfs(int k, int n) {
-        Queue<Integer> queue = new <Integer>LinkedList();
-        queue.offer(k);
-        while (!queue.isEmpty()) {
-            int temp = queue.poll();
-            visit[temp] = true;
+        Queue<Integer> q = new LinkedList<Integer>();
+        q.offer(k);
+        while (!q.isEmpty()) {
+            int temp = q.poll();
             System.out.print(temp + " ");
-            for (int i = 1; i <= n; i++) {
-                if (map[temp][i] == 1 && !visit[i]) {
-                    queue.offer(i);
-                    visit[i] = true;
+            for (int j = 0; j < n; j++) {
+                if (map[temp][j] == 1 && !visit[j]) {
+                    q.offer(j);
+                    visit[j] = true;
                 }
             }
         }
