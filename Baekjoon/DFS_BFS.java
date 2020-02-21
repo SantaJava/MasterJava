@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class DFS {
+class DFS {
     private static int n, m, v;
     private static int[][] map;
     private static boolean[] visit;
