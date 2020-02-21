@@ -1,43 +1,43 @@
 package Baekjoon;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class QuickSort {
-    public static void quickSort(int arr[], int low, int high) {
-        int mid = (low + high) / 2;
-        int i = low;
-        int j = high;
-        int pivot = arr[mid];
-        while (i <= j) {
-            while (arr[i] < pivot) {
-                i++;
+    public static void quickSort(int[] data, int l, int r) {
+        int left = l;
+        int right = r;
+        int pivot = data[(l + r) / 2];
+        do {
+            while (data[left] < pivot) left++;
+            while (data[right] > pivot) right--;
+            if (left <= right) {
+                int temp = data[left];
+                data[left] = data[right];
+                data[right] = temp;
+                left++;
+                right--;
             }
-            while (arr[j] > pivot) {
-                j--;
-            }
-            if (i <= j) {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-                i++;
-                j--;
-            }
-        }
-        if (low < j) {
-            quickSort(arr, low, j);
-        }
-        if (high > i) {
-            quickSort(arr, i, high);
-        }
+        } while (left <= right);
+        //swap을 다 하고 나면 다시 재귀 함수 호출.
+        if (l < right) quickSort(data, l, right);
+        if (r > left) quickSort(data, left, r);
     }
 
-    public static void main(String[] args) {
-        int arr[] = {1, 5, 3, 6, 4, 7};
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine().trim());
+        int[] arr = new int[N];
+
+        for (int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(br.readLine().trim());
         }
-        System.out.println();
         quickSort(arr, 0, arr.length - 1);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (int i : arr) {
+            System.out.println(i);
         }
     }
 }
