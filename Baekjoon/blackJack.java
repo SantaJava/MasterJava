@@ -25,20 +25,39 @@ public class blackJack {
         //빠른 계산을 위해 우선 카드값 정렬
         quickSort(cards, 0, cards.length - 1);
         for (int i : cards) {
-            System.out.println(i);
+            System.out.print(i + " ");
         }
+
 
         //정렬된 카드값으로 최대값보다 작지만 가장 큰 수를 찾는다 (세 수 중 가장 큰 수(Max) 가 될 수를 찾는다.)
         int maxIdx = findMax(cards, 0, cards.length - 1);
-        System.out.println(maxIdx);
+        int i = maxIdx;
+        int j = maxIdx - 1;
+        int z = 0;
+        System.out.println("maxInt = " + maxIdx);
+        for (i = maxIdx; i >= 0; i--) {
+            System.out.println("i = " +i);
+            for (j = i - 1; j >= 0; j--) {
+                if (i + j < M) {
+                    z = j - 1;
+                    while (z > M - i - j && z >= 0) {
+                        z--;
+                    }
+                }
+            }
+        }
+        i++;
+        j++;
+        z++;
+
+        System.out.println("i=" + i + "j:" + j + " z: " + z);
     }
 
     public static void quickSort(int[] cards, int l, int r) {
         int left = l;
         int right = r;
         int pivot = cards[(l + r) / 2];
-
-        while (left <= right) {
+        do {
             while (cards[left] < pivot) left++;
             while (cards[right] > pivot) right--;
             if (left <= right) {
@@ -48,34 +67,33 @@ public class blackJack {
                 left++;
                 right--;
             }
-        }
+        } while (left <= right);
+        //swap을 다 하고 나면 다시 재귀 함수 호출.
         if (l < right) quickSort(cards, l, right);
-        if (r > left) quickSort(cards, r, left);
+        if (r > left) quickSort(cards, left, r);
     }
 
     public static int findMax(int[] arr, int start, int end) {
         int mid = (start + end) / 2;
         int x = start;
         int y = end;
-        System.out.println("called, mid: " + mid + ", start : " + x + ", end: " + y);
+        int max = 0;
+        // System.out.println("called, mid: " + mid + ", start : " + x + ", end: " + y);
         if (y - x < 2) {
             if (arr[y] > M) {
-                System.out.println("end??????" + y);
-                return y;
-            } else {
-                System.out.println("start??????" + x);
                 return x;
+            } else {
+                return y;
             }
         } else if (arr[mid] == M) {
             return mid;
         } else {
-            System.out.println("??????");
             if (arr[mid] >= M) {
-                findMax(arr, x, mid);
+                max = findMax(arr, x, mid);
             } else if (arr[mid] <= M) {
-                findMax(arr, mid, y);
+                max = findMax(arr, mid, y);
             }
-            return 0;
         }
+        return max;
     }
 }
