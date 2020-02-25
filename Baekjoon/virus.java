@@ -77,7 +77,7 @@ class DfsGraph {
         //    System.out.println(vIdx + " ");
         for (int i : this.dfsGraph.get(vIdx)) {
             if (this.visitArr[i] == false) {
-                dfs(i);
+                count(i);
             }
         }
         return count;
@@ -101,6 +101,7 @@ public class virus {
         }
 
         sc.close();
-        dfsGraph.dfs(1);
+        System.out.println(dfsGraph.count(1)-1);
+
     }
 }
