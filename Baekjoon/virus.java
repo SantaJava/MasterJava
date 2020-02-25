@@ -6,15 +6,14 @@ package Baekjoon;
 
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 
 class DfsGraph {
     private int nV; //Node개수
     private ArrayList<ArrayList<Integer>> dfsGraph;
     private boolean[] visitArr;
+    private int count = 0;
 
     public DfsGraph(int nV) {
         this.nV = nV;
@@ -64,17 +63,28 @@ class DfsGraph {
 
     public void dfs(int vIdx) {
         this.visitArr[vIdx] = true;
-        System.out.println(vIdx + " ");
+   //    System.out.println(vIdx + " ");
         for (int i : this.dfsGraph.get(vIdx)) {
             if (this.visitArr[i] == false) {
                 dfs(i);
             }
         }
     }
+
+    public int count(int vIdx) {
+        this.count ++;
+        this.visitArr[vIdx] = true;
+        //    System.out.println(vIdx + " ");
+        for (int i : this.dfsGraph.get(vIdx)) {
+            if (this.visitArr[i] == false) {
+                dfs(i);
+            }
+        }
+        return count;
+    }
 }
 
 public class virus {
-
     public static void main(String[] args) throws Exception {
         int nV = 0;
         int nE = 0;
