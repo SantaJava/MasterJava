@@ -13,7 +13,8 @@ class DfsGraph {
     private int nV; //Node개수
     private ArrayList<ArrayList<Integer>> dfsGraph;
     private boolean[] visitArr;
-    private int count = 0;
+    public int count = 0;
+    private int depth = 0;
 
 
     public DfsGraph(int nV) {
@@ -65,23 +66,12 @@ class DfsGraph {
     public void dfs(int vIdx) {
         this.visitArr[vIdx] = true;
         //    System.out.println(vIdx + " ");
-        for (int i : this.dfsGraph.get(vIdx)) {
+        for (int i : this.dfsGraph.get(vIdx)) { //vIdx 가 키인 리스트의 요소들을 가져옴.
             if (this.visitArr[i] == false) {
+                count++;
                 dfs(i);
             }
         }
-    }
-
-    public int count(int vIdx) {
-        this.count++;
-        this.visitArr[vIdx] = true;
-        //    System.out.println(vIdx + " ");
-        for (int i : this.dfsGraph.get(vIdx)) {
-            if (this.visitArr[i] == false) {
-                count(i);
-            }
-        }
-        return count;
     }
 }
 
@@ -100,8 +90,14 @@ public class virus {
             int b = sc.nextInt();
             dfsGraph.put(a, b);
         }
-        dfsGraph.printGraphToAdjList();
+        // dfsGraph.printGraphToAdjList();
         sc.close();
+        dfsGraph.dfs(1);
+        System.out.println(dfsGraph.count);
+
+/*        ArrayList<ArrayList<Integer>> testAL = new ArrayList<>();
+        testAL.add(new ArrayList());
+        testAL.get(0).add(2);*/
 
     }
 }
