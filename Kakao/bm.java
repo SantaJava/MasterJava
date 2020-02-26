@@ -93,7 +93,6 @@ public class bm {
         return v;
     }
 
-
     public static void randomize(double[] v) {
         //random v 행열을 만들어줍니다.
         for (int i = 0; i < v.length; i++) {

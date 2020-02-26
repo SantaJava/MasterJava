@@ -15,14 +15,15 @@ class DfsGraph {
     private boolean[] visitArr;
     private int count = 0;
 
+
     public DfsGraph(int nV) {
         this.nV = nV;
-        this.dfsGraph = new ArrayList<ArrayList<Integer>>();
+        this.dfsGraph = new ArrayList<>();
         // 그래프 초기화
         for (int i = 0; i < this.nV + 1; i++) {
-            this.dfsGraph.add(new ArrayList<Integer>());
+            this.dfsGraph.add(new ArrayList<>());
         }
-        this.visitArr = new boolean[this.nV + 1];
+        this.visitArr = new boolean[this.nV + 1]; // visited?
     }
 
     public ArrayList<ArrayList<Integer>> getGraph() {
@@ -63,7 +64,7 @@ class DfsGraph {
 
     public void dfs(int vIdx) {
         this.visitArr[vIdx] = true;
-   //    System.out.println(vIdx + " ");
+        //    System.out.println(vIdx + " ");
         for (int i : this.dfsGraph.get(vIdx)) {
             if (this.visitArr[i] == false) {
                 dfs(i);
@@ -72,7 +73,7 @@ class DfsGraph {
     }
 
     public int count(int vIdx) {
-        this.count ++;
+        this.count++;
         this.visitArr[vIdx] = true;
         //    System.out.println(vIdx + " ");
         for (int i : this.dfsGraph.get(vIdx)) {
@@ -99,9 +100,8 @@ public class virus {
             int b = sc.nextInt();
             dfsGraph.put(a, b);
         }
-
+        dfsGraph.printGraphToAdjList();
         sc.close();
-        System.out.println(dfsGraph.count(1)-1);
 
     }
 }
