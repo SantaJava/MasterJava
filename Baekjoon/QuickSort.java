@@ -8,20 +8,21 @@ public class QuickSort {
     public static void quickSort(int[] data, int l, int r) {
         int left = l;
         int right = r;
-        int pivot = data[(l + r) / 2];
-        do {
-            while (data[left] < pivot) left++;
-            while (data[right] > pivot) right--;
+        int pivot = data[(l+r)/2];
 
+        while(left <= right){
+            while(data[left] < pivot) left++;
+            while(data[right] > pivot) right--;
+            //swap
             int temp = data[left];
             data[left] = data[right];
             data[right] = temp;
             left++;
             right--;
 
-        } while (left <= right);
-        if (l < right) quickSort(data, l, right);
-        if (r > left) quickSort(data, left, r);
+            if(right > l) quickSort(data, l, right);
+            if(left < r) quickSort(data, left, r);
+        }
     }
 
 
