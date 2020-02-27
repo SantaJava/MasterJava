@@ -12,15 +12,14 @@ public class QuickSort {
         do {
             while (data[left] < pivot) left++;
             while (data[right] > pivot) right--;
-            if (left <= right) {
-                int temp = data[left];
-                data[left] = data[right];
-                data[right] = temp;
-                left++;
-                right--;
-            }
+
+            int temp = data[left];
+            data[left] = data[right];
+            data[right] = temp;
+            left++;
+            right--;
+
         } while (left <= right);
-        //swap을 다 하고 나면 다시 재귀 함수 호출.
         if (l < right) quickSort(data, l, right);
         if (r > left) quickSort(data, left, r);
     }
