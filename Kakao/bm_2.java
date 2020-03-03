@@ -61,7 +61,7 @@ public class bm_2 {
                     //행렬 R에서 만들 수 있는 모든 행렬들을 검사합니다.
                 }
             }
-          //  System.out.println(count);
+            System.out.println(count);
         }
     }
 
@@ -75,14 +75,19 @@ public class bm_2 {
         }
     }
 
+    public static void printArr2(int[] arr) {
+        //print array to check answers
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+
     public static boolean solution(int[][] xMat, int[][] yMat, int[][] zMat, int k) {
         //xz = y
         int[] v = new int[k];
-        printArr(zMat);
         while (--k > 0) {
             randomize(v);
-            product(xMat, zMat, yMat, v);
-            //System.out.print(result + " ");
+            System.out.println(product(xMat, zMat, yMat, v));
         }
         return true;
     }
@@ -107,10 +112,15 @@ public class bm_2 {
             }
             Cr[i] = elementC;
         }
+/*
+        printArr2(Br);
+        System.out.println();
+        printArr2(Cr);
+        System.out.println();*/
 
         for (int i = 0; i < k; i++) {
             int elementAB = 0;
-            for (int j = 0; j < k; k++) {
+            for (int j = 0; j < k; j++) {
                 elementAB += A[i][j] * v[i];
             }
             ABr[i] = elementAB;
@@ -118,13 +128,9 @@ public class bm_2 {
 
         for (int i = 0; i < k; i++) {
             if (ABr[i] - Cr[i] != 0) {
-                System.out.println("false!");
                 return false;
             }
         }
-        System.out.println("?");
-
-
         return true;
     }
 
