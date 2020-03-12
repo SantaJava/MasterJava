@@ -85,11 +85,15 @@ public class bm_2 {
     public static boolean solution(int[][] xMat, int[][] yMat, int[][] zMat, int k) {
         //xz = y
         int[] v = new int[k];
-        while (--k > 0) {
+        boolean result = true;
+        int K = 5;
+        while (--K > 0) {
             randomize(v);
-            System.out.println(product(xMat, zMat, yMat, v));
+            if (!product(xMat, zMat, yMat, v)) {
+                result = false;
+            }
         }
-        return true;
+        return result;
     }
 
     public static boolean product(int[][] A, int[][] B, int[][] C, int[] v) {
@@ -103,35 +107,32 @@ public class bm_2 {
             int elementC = 0;
 
             for (int j = 0; j < k; j++) {
-                elementB += B[i][j] * v[i];
+                elementB += B[i][j] * v[j];
             }
             Br[i] = elementB;
 
             for (int j = 0; j < k; j++) {
-                elementC += C[i][j] * v[i];
+                elementC += C[i][j] * v[j];
             }
             Cr[i] = elementC;
         }
-/*
-        printArr2(Br);
-        System.out.println();
-        printArr2(Cr);
-        System.out.println();*/
 
         for (int i = 0; i < k; i++) {
             int elementAB = 0;
             for (int j = 0; j < k; j++) {
-                elementAB += A[i][j] * v[i];
+                elementAB += A[i][j] * v[j];
             }
             ABr[i] = elementAB;
         }
 
+        boolean result = true;
+
         for (int i = 0; i < k; i++) {
             if (ABr[i] - Cr[i] != 0) {
-                return false;
+                result = false;
             }
         }
-        return true;
+        return result;
     }
 
     public static void randomize(int[] v) {
