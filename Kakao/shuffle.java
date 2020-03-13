@@ -14,7 +14,7 @@ public class shuffle {
             String[] artistList = sc.nextLine().split("\t");
             // System.out.println(artistList[artistList.length - 1]);
 
-            Map<String, ArrayList<String>> map = new HashMap<>(); //키값(아티스트 이름) 에 따라 곡을 저장하기 위해 Map을 만들었습니다. 주신 Spotify의 예제를 구현하기 위한 자료형으로 Array와 listArray중 고민하다가, 빈 공간을 최소화 할 수 있는 ArrayList로 구현하기로 결정했습니다.
+            Map<String, ArrayList<String>> map = new HashMap<>(); //키 값(아티스트 이름) 에 따라 곡을 저장하기 위해 Map을 만들었습니다. 주신 Spotify의 예제를 구현하기 위한 자료형으로 Array와 listArray중 고민하다가, 빈 공간을 최소화 할 수 있는 ArrayList로 구현하기로 결정했습니다.
 
             for (int j = 0; j < songList.length; j++) { //생성한 ArrayList에 키값과 음악명을 담아줍니다.
                 if (map.containsKey(artistList[j])) { //키값이 있을 경우 value 를 기존 키값에 추가해 줍니다.
